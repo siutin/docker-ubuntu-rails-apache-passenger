@@ -33,7 +33,7 @@ RUN apt-get install -y libapr1-dev
 # Apache Portable Runtime Utility (APU) development headers
 RUN apt-get install -y libaprutil1-dev
 
-# ----------------------------------------------------------------------- <<
+# install passenger ---------------------------------------------------- >>
 
 USER worker
 
@@ -42,7 +42,7 @@ ENV PASSENGER_VERSION 4.0.59
 RUN /bin/bash -l -c 'gem install passenger --version $PASSENGER_VERSION --no-rdoc --no-ri'
 RUN /bin/bash -l -c 'passenger-install-apache2-module --auto'
 
-# ----------------------------------------------------------------------
+# config passenger ----------------------------------------------------- >>
 
 USER root
 
@@ -60,7 +60,8 @@ RUN a2enmod passenger
 
 RUN apachectl restart
 
-# ----------------------------------------------------------------------
+# config virtual host ------------------------------------------------ >>
+
 RUN curl -L https://gist.githubusercontent.com/siutin/72f6a5b2c6dfdcc597c6/raw/34ef4325a07d30035d4f086000de9e6b21692479/gistfile1.apacheconf > /etc/apache2/sites-enabled/000-default.conf
 
 RUN mkdir -p /var/www/app/public
@@ -68,6 +69,7 @@ RUN echo OK > /var/www/app/public/index.html
 RUN chown worker:worker -R /var/www/
 
 RUN apachectl restart
+
 # ----------------------------------------------------------------------
 
 # clean apt caches
