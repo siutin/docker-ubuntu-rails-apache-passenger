@@ -31,9 +31,9 @@ RUN apt-get install -y apache2-threaded-dev
 RUN apt-get install -y libapr1-dev
 
 # Apache Portable Runtime Utility (APU) development headers
-RUN	apt-get install -y libaprutil1-dev
+RUN apt-get install -y libaprutil1-dev
 
------------------------------------------------------------------------ <<
+# ----------------------------------------------------------------------- <<
 
 USER worker
 
