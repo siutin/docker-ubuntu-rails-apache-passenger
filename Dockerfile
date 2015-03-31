@@ -45,4 +45,4 @@ RUN /bin/bash -l -c 'passenger-install-apache2-module --auto'
 # ----------------------------------------------------------------------
 
 # clean apt caches
-rm -rf /var/lib/apt/lists/*
+RUN rm -rf /var/lib/apt/lists/*
