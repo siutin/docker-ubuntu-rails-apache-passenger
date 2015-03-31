@@ -61,6 +61,10 @@ RUN a2enmod passenger
 RUN apachectl restart
 
 # ----------------------------------------------------------------------
+RUN curl -L https://gist.githubusercontent.com/siutin/72f6a5b2c6dfdcc597c6/raw/34ef4325a07d30035d4f086000de9e6b21692479/gistfile1.apacheconf > /etc/apache2/sites-enabled/000-default.conf
+
+RUN apachectl restart
+# ----------------------------------------------------------------------
 
 # clean apt caches
 RUN rm -rf /var/lib/apt/lists/*
