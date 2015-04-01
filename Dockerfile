@@ -51,7 +51,7 @@ ENV PASSENGER_VERSION 4.0.59
 
 RUN echo "LoadModule passenger_module /home/worker/.rvm/gems/ruby-$RUBY_VERSION/gems/passenger-$PASSENGER_VERSION/buildout/apache2/mod_passenger.so" > /etc/apache2/mods-available/passenger.load
 
-RUN echo -e "<IfModule mod_passenger.c>\n \
+RUN echo "<IfModule mod_passenger.c>\n \
  PassengerRoot /home/worker/.rvm/gems/ruby-$RUBY_VERSION/gems/passenger-$PASSENGER_VERSION\n \
  PassengerDefaultRuby /home/worker/.rvm/gems/ruby-$RUBY_VERSION/wrappers/ruby\n \
 </IfModule>" > /etc/apache2/mods-available/passenger.conf
