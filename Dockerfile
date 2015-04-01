@@ -62,10 +62,10 @@ RUN apachectl restart
 
 # config virtual host ------------------------------------------------ >>
 
-RUN curl -L https://gist.githubusercontent.com/siutin/72f6a5b2c6dfdcc597c6/raw/34ef4325a07d30035d4f086000de9e6b21692479/gistfile1.apacheconf > /etc/apache2/sites-enabled/000-default.conf
+RUN curl -L https://gist.githubusercontent.com/siutin/72f6a5b2c6dfdcc597c6/raw/bc56ee46c4c83d3a82b92f71de34dba65125f795/gistfile1.apacheconf > /etc/apache2/sites-enabled/000-default.conf
 
-RUN mkdir -p /var/www/app/public
-RUN echo OK > /var/www/app/public/index.html
+RUN mkdir -p /var/www/app/current/public
+RUN echo OK > /var/www/app/current/public/index.html
 RUN chown worker:worker -R /var/www/
 
 RUN apachectl restart
