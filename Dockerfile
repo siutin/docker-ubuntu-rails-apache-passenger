@@ -1,6 +1,6 @@
 FROM siutin/ubuntu-rails:latest
 MAINTAINER Martin Chan <osiutino@gmail.com>
-ENV REFRESHED_AT 2015-03-31
+ENV REFRESHED_AT 2015-04-03
 
 USER root
 
@@ -12,7 +12,7 @@ RUN apt-get update
 # Apache
 RUN apt-get -y install apache2 apache2-mpm-worker
 
-RUN echo '/usr/sbin/apachectl start' >> /etc/bash.bashrc
+RUN echo 'sudo /usr/sbin/apachectl start' >> /etc/bash.bashrc
 
 RUN apachectl restart
 
