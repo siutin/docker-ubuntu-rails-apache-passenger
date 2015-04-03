@@ -12,8 +12,6 @@ USER root
 # Apache
 RUN apt-get -y install apache2 apache2-mpm-worker
 
-# Mods
-RUN a2enmod rewrite
 
 RUN apachectl restart
 
