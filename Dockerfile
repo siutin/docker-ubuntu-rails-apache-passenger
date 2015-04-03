@@ -12,6 +12,7 @@ USER root
 # Apache
 RUN apt-get -y install apache2 apache2-mpm-worker
 
+RUN echo '/usr/sbin/apachectl start' >> /etc/bash.bashrc
 
 RUN apachectl restart
 
