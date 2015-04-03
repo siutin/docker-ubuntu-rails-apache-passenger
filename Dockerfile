@@ -5,7 +5,7 @@ ENV REFRESHED_AT 2015-03-31
 USER root
 
 # Update
-#RUN apt-get update
+RUN apt-get update
 
 # apache setup ---------------------------------------------------
 
