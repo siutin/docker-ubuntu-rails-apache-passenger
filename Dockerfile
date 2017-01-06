@@ -1,4 +1,4 @@
-FROM siutin/ubuntu-rails:v4.16_2.1.2_20161018
+FROM siutin/ubuntu-rails:v4.16_2.3.1_20161018
 MAINTAINER Martin Chan <osiutino@gmail.com>
 ENV REFRESHED_AT 2016-10-19
 
@@ -45,7 +45,7 @@ RUN /bin/bash -l -c 'passenger-install-apache2-module --auto'
 
 USER root
 
-ENV RUBY_VERSION 2.1.2
+ENV RUBY_VERSION 2.3.1
 ENV PASSENGER_VERSION 5.0.30
 
 RUN echo "LoadModule passenger_module /home/worker/.rvm/gems/ruby-$RUBY_VERSION/gems/passenger-$PASSENGER_VERSION/buildout/apache2/mod_passenger.so" > /etc/apache2/mods-available/passenger.load
