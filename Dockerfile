@@ -1,6 +1,6 @@
-FROM siutin/ubuntu-rails:v4.16_2.3.1_20161018
+FROM siutin/ubuntu-rails:v5.0.1_2.3.1_20170106
 MAINTAINER Martin Chan <osiutino@gmail.com>
-ENV REFRESHED_AT 2016-10-19
+ENV REFRESHED_AT 2017-01-06
 
 USER root
 
