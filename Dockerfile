@@ -61,18 +61,7 @@ RUN apachectl restart
 
 # config virtual host ------------------------------------------------ >>
 
-RUN echo "<VirtualHost *:80>\n \
-        # ServerName localhost\n \
-        DocumentRoot /var/www/app/current/public\n \
-        <Directory /var/www/app/current/public>\n \
-                # This relaxes Apache security settings.\n \
-                AllowOverride all\n \
-                # MultiViews must be turned off.\n \
-                Options -MultiViews\n \
-                # Uncomment this if you're on Apache >= 2.4\n \
-                Require all granted\n \
-        </Directory>\n \
-</VirtualHost>\n" > /etc/apache2/sites-enabled/000-default.conf
+ADD 000-default.conf /etc/apache2/sites-enabled/000-default.conf
 
 RUN mkdir -p /var/www/app/current/public
 RUN echo OK > /var/www/app/current/public/index.html
