@@ -61,7 +61,18 @@ RUN apachectl restart
 
 # config virtual host ------------------------------------------------ >>
 
-RUN curl -L https://gist.githubusercontent.com/siutin/72f6a5b2c6dfdcc597c6/raw/bc56ee46c4c83d3a82b92f71de34dba65125f795/gistfile1.apacheconf > /etc/apache2/sites-enabled/000-default.conf
+RUN echo "<VirtualHost *:80>\n \
+        # ServerName localhost\n \
+        DocumentRoot /var/www/app/current/public\n \
+        <Directory /var/www/app/current/public>\n \
+                # This relaxes Apache security settings.\n \
+                AllowOverride all\n \
+                # MultiViews must be turned off.\n \
+                Options -MultiViews\n \
+                # Uncomment this if you're on Apache >= 2.4\n \
+                Require all granted\n \
+        </Directory>\n \
+</VirtualHost>\n" > /etc/apache2/sites-enabled/000-default.conf
 
 RUN mkdir -p /var/www/app/current/public
 RUN echo OK > /var/www/app/current/public/index.html
@@ -77,3 +88,4 @@ RUN rm -rf /var/lib/apt/lists/*
 # ----------------------------------------------------------------------
 
 USER worker
+
